@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mars Scraper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body style="background-color: cornflowerblue;">
+    <div class="container">
+        <div class= "jumbotron page-header text-center" style="border: 5pt firebrick double; background-color: tan;">
+            <h1 style="font-weight: bold; color:sienna; font-size: 48pt; text-decoration: underline double 3pt;">
+                Mission to Mars
+            </h1>
+            <h4 style="color: sienna; font-size: 20pt;">Click below to scrape new data.</h4>
+            <div class="container" >
+                <p><br></br><a class="btn btn-primary" href="../scrape" role="button" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 16pt; padding:20pt; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">Scraper? I hardly know 'er!</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: cornflowerblue;">
+        <div class="d-flex row text-center" style="justify-content: center; background-color: tan; border: 5pt firebrick double;">
+            <div class="col-12" style="background-color: tan; padding: 2.5%;">
+                <h1 style="text-decoration: underline sienna double; color: sienna; text-align: center; padding-bottom: 5%;">Latest Mars News</h1>
+                <div class="col-12" style="color:midnightblue; background-color: lightsteelblue; text-align: left; border: 5pt double firebrick; font-size: 16pt; padding:20pt; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">
+                    <h3 style="color: midnightblue; text-decoration: midnightblue underline double;">{{mars_dict.headline}}</h3>
+                    <p style="color: midnightblue;">{{mars_dict.news}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row" style="background-color: cornflowerblue; padding: 5%;">
+            <div class="col text-center" style="border: 5pt firebrick double; background-color: tan; padding: 5%; margin:1%;">
+                <h1 style="color: sienna; text-decoration: sienna underline double; padding-bottom: 5%;">Featured Mars Image</h1>
+                <img class="row-img mx-auto" src="{{mars_dict.featured_img}}" alt="Feat. Mars Img" style="display:block; margin:auto; color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 16pt; padding:20pt; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">
+            </div>
+        </div>
+        <div class="d-flex flex-wrap flex-row" style="justify-content: center;">
+            <div class="col-sm-5 text-center" style="border: 5pt firebrick double; background-color: tan; padding: 5%; margin:1%;"> 
+                <h3 style="color: sienna; text-decoration: sienna underline double; padding-bottom: 5%;">Mars vs. Earth</h3>
+                <div class="container" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 16pt; padding:10pt; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">                
+                    {{mars_dict.table1 | safe}}
+                </div>
+            </div>
+            <div class="col-sm-5 text-center" style="border: 5pt firebrick double; background-color: tan; padding: 5%; margin:1%;">
+                <h3 style="color: sienna; text-decoration: sienna underline double; padding-bottom: 5%;">More Mars Facts</h3>
+                <div class="container mx-auto" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 16pt; padding:20pt; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">                
+                    {{mars_dict.table2 | safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron page-footer" style="background-color: cornflowerblue;">
+        <div class="d-flex flex-row card-group" style="justify-content: center;">
+            <div class="col-12 col-md-3" style="padding:15px">
+                <div class="card" style="border: 5pt firebrick double; background-color: tan;">
+                    <img class="card-img-top mx-auto" src="{{mars_dict.hemispheres.cerberus.img_url}}" alt="cerberus" style="max-width: 75%; max-height:50%">
+                    <div class="card-body p-4" style="background-color: tan;">
+                        <div class="text-center" style="background-color: tan;">
+                            <h5 class="fw-bolder" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 14pt; padding:15px; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">{{mars_dict.hemispheres.cerberus.title}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3" style="padding:15px">
+                <div class="card" style="border: 5pt firebrick double; background-color: tan;">
+                    <img class="card-img-top mx-auto" src="{{mars_dict.hemispheres.schiaparelli.img_url}}" alt="schiaparelli" style="max-width: 75%; max-height:50%">
+                    <div class="card-body p-4" style="background-color: tan;">
+                        <div class="text-center" style="background-color: tan;">
+                            <h5 class="fw-bolder" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 14pt; padding:15px; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">{{mars_dict.hemispheres.schiaparelli.title}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3" style="padding:15px">
+                <div class="card" style="border: 5pt firebrick double; background-color: tan;">
+                    <img class="card-img-top mx-auto" src="{{mars_dict.hemispheres.syrtis.img_url}}" alt="syrtis" style="max-width: 75%; max-height:50%">
+                    <div class="card-body p-4" style="background-color: tan;">
+                        <div class="text-center" style="background-color: tan;">
+                            <h5 class="fw-bolder" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 14pt; padding:15px; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">{{mars_dict.hemispheres.syrtis.title}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3" style="padding:15px">
+                <div class="card" style="border: 5pt firebrick double; background-color: tan;">
+                    <img class="card-img-top mx-auto" src="{{mars_dict.hemispheres.valles.img_url}}" alt="valles" style="max-width: 75%; max-height:50%; align-content: center;">
+                    <div class="card-body p-4" style="background-color: tan;">
+                        <div class="text-center" style="background-color: tan;">
+                            <h5 class="fw-bolder" style="color:midnightblue; background-color: lightsteelblue; border: 5pt double firebrick; font-size: 14pt; padding:15px; font-weight: bolder; box-shadow: 12px 12px 10px 1px darkslategray;">{{mars_dict.hemispheres.valles.title}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer container">
+        <div class="footer text-center" style="background-color: tan; color: sienna; border: 5pt firebrick double; text-decoration: underline double; font-weight: 100%;">
+            Copyright &copy; Maxwell Krueger 2021
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+ 
+                                                                                              
